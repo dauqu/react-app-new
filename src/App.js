@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import VSEditor from "@monaco-editor/react";
+import * as React from "react";
+
 
 function App() {
+
+
+  const jsvsHelloWorld = `
+  // Your First Program
+
+class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!"); 
+    }
+}`
+
+  const [value, setValue] = React.useState(jsvsHelloWorld);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{
+      width: "100vw",
+      height: "60vh",
+    }}>
+      <VSEditor
+        className="w-full h-full"
+        language="java"
+        theme="vs-dark"
+        value={value}
+        onChange={(e) => {
+          setValue(e);
+        }}
+      />
     </div>
   );
 }
