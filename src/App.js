@@ -22,7 +22,7 @@ class HelloWorld {
       height: "60vh",
     }}>
       <VSEditor
-        className="w-full h-full"
+        className="w-full h-full harsha"
         language="java"
         theme="vs-dark"
         value={value}
